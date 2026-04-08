@@ -1,0 +1,48 @@
+{
+    "tasks": [
+        {
+            "label": "Meson: setup",
+            "type": "shell",
+            "command": "meson",
+            "args": [
+                "setup",
+                "build",
+                "--reconfigure"
+            ],
+            "problemMatcher": []
+        },
+        {
+            "label": "Meson: compile",
+            "type": "shell",
+            "command": "meson",
+            "args": [
+                "compile",
+                "-C",
+                "build"
+            ],
+            "problemMatcher": [
+                "$gcc"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "dependsOn": [
+                "Meson: setup"
+            ]
+        },
+        {
+            "label": "Meson: run",
+            "type": "shell",
+            "command": "${workspaceFolder}/build/program",
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "dependsOn": [
+                "Meson: compile"
+            ],
+            "problemMatcher": []
+        }
+    ],
+    "version": "2.0.0"
+}
