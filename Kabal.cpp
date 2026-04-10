@@ -30,6 +30,10 @@ heap& Kabal::getHeap(std::string code){
     }
 }
 
+heap& Kabal::heapFraID(const std::string& code) {
+    return getHeap(code);
+}
+
 void Kabal::executeMove(std::string from, std::string to, std::string card){
     
     try{
