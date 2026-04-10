@@ -13,8 +13,11 @@ compiler_flags = ['-Wconversion', '-fdiagnostics-color=always', '-Werror=return-
 src = [
 'Card.cpp',
 'CardDeck.cpp',
+'GUI.cpp',
 'Heaps.cpp',
 'Kabal.cpp',
+'KabalWin.cpp',
+'Klikk.cpp',
 'main.cpp',
 'Move.cpp'
 ]
