@@ -26,6 +26,11 @@ class Kabal{
     bool checkWin();
     void executeMove(std::string from, std::string to, std::string card);
     void drawFromStock();
+    heap& heapFraID(const std::string& code);
 
+    sevenHeaps& getHeaps() {return heaps;}
+    heap& getStock() {return stock;}
+    heap& getWaste() {return waste;}
+    std::vector<heap>& getFoundations() {return foundations;}
 };
 
