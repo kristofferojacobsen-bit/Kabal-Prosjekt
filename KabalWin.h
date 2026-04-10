@@ -25,6 +25,7 @@ class KabalWin : public TDT4102::AnimationWindow{
     public:
     KabalWin();
     void handterKlikk();
+    bool isFinished() const { return ferdig; }
 
     void draw();
 };

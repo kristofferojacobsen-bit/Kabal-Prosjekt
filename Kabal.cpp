@@ -104,11 +104,30 @@ void Kabal::displayBoard(){
 }
 
 bool Kabal::checkWin(){
-    for (heap f : foundations){
-        if (f.cards.empty()){return false;}
-        if (f.cards.back().getRank() != Rank::king) {return false;}
+    // A solved game means all 52 cards are in foundations.
+    // Keep this aligned with the current move logic and board state.
+    int foundationCardCount = 0;
+    for (heap& f : foundations) {
+        if (f.cards.size() != 13) {
+            return false;
+        }
+        if (f.cards.back().getRank() != Rank::king) {
+            return false;
+        }
+        foundationCardCount += static_cast<int>(f.cards.size());
     }
-    return true;
+
+    if (!stock.cards.empty() || !waste.cards.empty()) {
+        return false;
+    }
+
+    for (heap& h : heaps.heaps) {
+        if (!h.cards.empty()) {
+            return false;
+        }
+    }
+
+    return foundationCardCount == 52;
 }
 
 void Kabal::drawFromStock(){
